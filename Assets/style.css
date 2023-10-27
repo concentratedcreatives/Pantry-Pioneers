@@ -39,14 +39,23 @@ input[type="text"] {
 }
 
 button {
-    background-color: #2ECC71; /* Green button background color */
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #27AE60; /* Darker green on hover */
+img {
+    margin: 10px;
+}
+
+#fixed-box {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 5px;
+}
+
+#recipe-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
 }
