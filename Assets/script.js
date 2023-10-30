@@ -1,4 +1,3 @@
-// https://api.edamam.com/api/nutrition-details?app_id=59725894&app_key=e5e29232712b58a46ad291f76c5617a9
 
 var recipeList = document.querySelector("ul");
 var searchButton = document.getElementById("searchButton");
@@ -18,13 +17,6 @@ function getApi(event) {
   fetch(requestUrl).then(function (response) {
     return response.json();
   });
-  // .then(function (data) {
-  //   for (var i = 0; i < 4; i++) {
-  //     var listItem = document.createElement("li");
-  // listItem.textContent = data[i];
-  // recipeList.appendChild(listItem);
-  //       }
-  //     });
-}
+
 
 searchButton.addEventListener("click", getApi);
