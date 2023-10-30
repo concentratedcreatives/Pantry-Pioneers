@@ -1,4 +1,3 @@
-
 var recipeList = document.querySelector("ul");
 var searchButton = document.getElementById("searchButton");
 var searchBar = document.getElementById("searchBar");
@@ -14,9 +13,5 @@ function getApi(event) {
   console.log(searchedIng);
   console.log(requestUrl);
 
-  fetch(requestUrl).then(function (response) {
-    return response.json();
-  });
-
-
-searchButton.addEventListener("click", getApi);
+  searchButton.addEventListener("click", getApi);
+}
