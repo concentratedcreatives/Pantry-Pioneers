@@ -2,11 +2,6 @@ https://api.edamam.com/api/nutrition-details?app_id=59725894&app_key=e5e29232712
 
 https://api.edamam.com/api/recipes/v2?type=public&app_id=59725894&app_key=e5e29232712b58a46ad291f76c5617a9
 
-
-
-
-
-
 var recipeList = document.querySelector("ul");
 var fetchButton = document.getElementById("fetch-button");
 var searchBar = document.querySelector("#searchBar");
@@ -29,3 +24,6 @@ function getApi() {
 }
 
 searchButton.addEventListener('click', getApi);
+
+
+
