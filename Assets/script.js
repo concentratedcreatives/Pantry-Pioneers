@@ -9,9 +9,14 @@ function getApi(event) {
     "https://api.edamam.com/api/recipes/v2?type=public&app_id=6ea07f97&app_key=bdc6918f9a087784e70607e12f2591ab&q=" +
     searchedIng +
     "&ingr=5";
-
-  console.log(searchedIng);
-  console.log(requestUrl);
-
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      console.log(searchedIng);
+      console.log(requestUrl);
+    });
   searchButton.addEventListener("click", getApi);
 }
