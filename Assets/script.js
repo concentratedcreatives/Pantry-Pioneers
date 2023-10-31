@@ -56,3 +56,19 @@ function getApi(event) {
     });
 }
 searchButton.addEventListener("click", getApi);
+
+var recipeButton = document.querySelectorAll(".imgButton");
+function getApi2(event) {
+  event.preventDefault();
+  var requestUrl = "";
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      console.log(requestUrl);
+    });
+}
+
+recipeButton.addEventListener("click", getApi2);
