@@ -22,22 +22,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./Assets/style.css">
     <title>Pantry Pioneers</title>
-  </head>
-  <body>
+</head>
+<body>
+    <div class="mode">
     <header>
-      <h1>Pantry Pioneers</h1>
-      <p>
-        <i>"Make good use of ingredients lying around!"</i> -
-        <i>Maybe</i> Martha Stewart
-      </p>
-      <div class="switch" id="dark-mode-toggle">
-        <label>
-          <i class="small material-icons">brightness_5</i>
-          <input type="checkbox" />
-          <span class="lever"></span>
-          <i class="small material-icons position">brightness_2</i>
-        </label>
-      </div>
+        <h1>Pantry Pioneers</h1>
+        <p><i>"Make good use of ingredients lying around!"</i> - <i>Maybe</i> Martha Stewart</p>
+        <div class="switch" id="dark-mode-toggle">
+            <label>
+                <i class="small material-icons">brightness_5</i>
+                <input type="checkbox" id="theme-switcher">
+                <span class="lever"></span>
+                <i class="small material-icons position">brightness_2</i>
+            </label>
+        </div>
     </header>
 
     <section id="ingredient-search">
@@ -138,5 +136,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Your custom JavaScript -->
     <script src="./Assets/script.js"></script>
-  </body>
+</div>
+</body>
 </html>

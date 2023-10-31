@@ -55,6 +55,42 @@ function getApi(event) {
       recipe6cap.innerHTML = data.hits[5].recipe.label;
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var themeSwitcher = document.getElementById("theme-switcher");
+    var containerMode = document.querySelector(".mode");
+
+    // Set default mode to light
+    var mode = "light";
+
+    // Function to toggle between dark and light modes
+    function toggleMode() {
+      if (themeSwitcher.checked) {
+        mode= "dark" 
+        }
+        else{
+          mode= "light"
+        }
+        if (mode=="dark") {
+          console.log(mode)
+           
+            // containerMode.classList.remove("light");
+            containerMode.classList.add("dark");
+
+        } else {
+          console.log(mode)
+           
+            containerMode.classList.remove("dark");
+            // containerMode.classList.add("light");
+        }
+    }
+
+    // Listen for the checkbox change event to toggle mode
+    themeSwitcher.addEventListener('change', toggleMode);
+});
+
+
+
 searchButton.addEventListener("click", getApi);
 
 var recipeButton = document.querySelectorAll(".imgButton");
