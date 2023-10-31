@@ -15,6 +15,25 @@ function getApi(event) {
 
   searchButton.addEventListener("click", getApi);
 }
+var themeSwitcher = document.querySelector("#theme-switcher");
+var containerMode = document.querySelector(".mode");
+
+// Set default mode to dark
+var mode = "light";
+
+// Listen for a click event on toggle switch
+themeSwitcher.addEventListener("click", function() {
+  // If mode is dark, apply light background
+  if (mode === "light") {
+    mode = "dark";
+    containerMode.setAttribute("class", "dark");
+  }
+  // If mode is light, apply dark background 
+  else {
+    mode = "light";
+    containerMode.setAttribute("class", "light");
+  }
+});
 
 
 
