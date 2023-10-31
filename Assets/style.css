@@ -49,13 +49,17 @@ button {
 img {
     margin: 10px;
 }
+.mode {
+    transition: all 1.5s;
+}
 .light header {
     background-color: #eaf8f0;
 }
 
-.dark header {
+.dark {
     background-color: #263238;
     color: bisque;
+    transition: all 1.5s;
 }
 #dark-mode-toggle {
     position: fixed;

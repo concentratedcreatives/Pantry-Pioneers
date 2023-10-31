@@ -15,25 +15,40 @@ function getApi(event) {
 
   searchButton.addEventListener("click", getApi);
 }
-var themeSwitcher = document.querySelector("#theme-switcher");
-var containerMode = document.querySelector(".mode");
+document.addEventListener('DOMContentLoaded', function() {
+    var themeSwitcher = document.getElementById("theme-switcher");
+    var containerMode = document.querySelector(".mode");
 
-// Set default mode to dark
-var mode = "light";
+    // Set default mode to light
+    var mode = "light";
 
-// Listen for a click event on toggle switch
-themeSwitcher.addEventListener("click", function() {
-  // If mode is dark, apply light background
-  if (mode === "light") {
-    mode = "dark";
-    containerMode.setAttribute("class", "dark");
-  }
-  // If mode is light, apply dark background 
-  else {
-    mode = "light";
-    containerMode.setAttribute("class", "light");
-  }
+    // Function to toggle between dark and light modes
+    function toggleMode() {
+      if (themeSwitcher.checked) {
+        mode= "dark" 
+        }
+        else{
+          mode= "light"
+        }
+        if (mode=="dark") {
+          console.log(mode)
+           
+            // containerMode.classList.remove("light");
+            containerMode.classList.add("dark");
+
+        } else {
+          console.log(mode)
+           
+            containerMode.classList.remove("dark");
+            // containerMode.classList.add("light");
+        }
+    }
+
+    // Listen for the checkbox change event to toggle mode
+    themeSwitcher.addEventListener('change', toggleMode);
 });
+
+
 
 
 
