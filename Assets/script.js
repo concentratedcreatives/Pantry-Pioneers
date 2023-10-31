@@ -57,6 +57,7 @@ function getApi(event) {
 }
 searchButton.addEventListener("click", getApi);
 
+var recipeButton = document.querySelectorAll(".imgButton");
 function getApi2(event) {
   event.preventDefault();
   var requestUrl = "";
