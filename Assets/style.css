@@ -58,6 +58,6 @@ img {
   flex-wrap: wrap;
   justify-content: space-around;
 }
-figcaption {
+.imgButton {
   text-align: center;
 }
