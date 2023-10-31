@@ -1,5 +1,3 @@
-/* Updated custom styles with a colorful design */
-
 body {
   font-family: "Poppins", monospace;
   background-color: #f7f7f7;
@@ -8,16 +6,15 @@ body {
 }
 
 header {
-  text-align: center;
-  background-color: navy; /* Navy background color */
-  color: #fff;
-  padding: 20px;
+    text-align: center;
+    padding: 20px;
 }
 
 h1 {
     font-size: 4.5em;
     text-shadow: 6px 6px 6px yellow;
 }
+  
 h2 {
     font-size: 2.3em;
 }
@@ -47,13 +44,29 @@ input[type="text"] {
 }
 
 button {
-  cursor: pointer;
+    background-color: #2ECC71; /* Green button background color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 img {
     margin: 10px;
 }
+.mode {
+    transition: all 1.5s;
+}
+.light header {
+    background-color: #eaf8f0;
+}
 
+.dark {
+    background-color: #263238;
+    color: bisque;
+    transition: all 1.5s;
+}
 #dark-mode-toggle {
   position: fixed;
   top: 0;
@@ -62,9 +75,9 @@ img {
 }
 
 #recipe-images {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .imgButton {
   text-align: center;
