@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Assets/style.css" />
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,63 +22,96 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./Assets/style.css">
     <title>Pantry Pioneers</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Pantry Pioneers</h1>
-        <p><i>"Make good use of ingredients lying around!"</i> - <i>Maybe</i> Martha Stewart</p>
-        <div class="switch" id="dark-mode-toggle">
-            <label>
-                <i class="small material-icons">brightness_5</i>
-                <input type="checkbox">
-                <span class="lever"></span>
-                <i class="small material-icons position">brightness_2</i>
-            </label>
-        </div>
+      <h1>Pantry Pioneers</h1>
+      <p>
+        <i>"Make good use of ingredients lying around!"</i> -
+        <i>Maybe</i> Martha Stewart
+      </p>
+      <div class="switch" id="dark-mode-toggle">
+        <label>
+          <i class="small material-icons">brightness_5</i>
+          <input type="checkbox" />
+          <span class="lever"></span>
+          <i class="small material-icons position">brightness_2</i>
+        </label>
+      </div>
     </header>
 
     <section id="ingredient-search">
-        <h4>Find Recipes Based on Your Ingredients</h4>
-        <form>
-            <label for="ingredients"><i>Enter the ingredients you have:</i></label>
-            <input type="text" id="ingredients" placeholder="E.g., tomatoes, pasta, onions" required />
-            <button class="btn waves-effect waves-light" type="submit" name="action">Search!
-            </button>
-        </form>
+      <h4>Find Recipes Based on Your Ingredients</h4>
+      <form>
+        <label for="ingredients"><i>Enter the ingredients you have:</i></label>
+        <input
+          type="text"
+          id="ingredients"
+          placeholder="E.g., tomatoes, pasta, onions"
+          required
+        />
+        <button
+          class="btn waves-effect waves-light"
+          id="searchButton"
+          type="submit"
+          name="action"
+        >
+          Search!
+        </button>
+      </form>
     </section>
 
     <section id="search-results">
-        <div id="recipe-images">
-            <img class="z-depth-4" src="./images/image_360.png" alt="placeholder" />
-            <img class="z-depth-4" src="./images/image_360.png" alt="placeholder" />
-            <img class="z-depth-4" src="./images/image_360.png" alt="placeholder" />
-            <img class="z-depth-4" src="./images/image_360.png" alt="placeholder" />
-            <img class="z-depth-4" src="./images/image_360.png" alt="placeholder" />
-            <img class="z-depth-4" src="./images/image_360.png" alt="placeholder" />
-            <img class="z-depth-4" src="./images/image_360.png" alt="placeholder" />
-            <img class="z-depth-4" src="./images/image_360.png" alt="placeholder" />
-            <!-- Recipes will be displayed here -->
-        </div>
+      <div id="recipe-images">
+        <figure>
+          <img class="z-depth-4" id="recipe1" src="" />
+        <figcaption id="recipe1cap"></figcaption>
+      </figure>
+      <figure>
+        <img class="z-depth-4" id="recipe2" src="" />
+          <figcaption id="recipe2cap"></figcaption>
+        </figure> 
+        <figure>
+          <img class="z-depth-4" id="recipe3" src="" />
+          <figcaption id="recipe3cap"></figcaption>
+        </figure>   
+        <figure>
+          <img class="z-depth-4" id="recipe4" src="" />
+            <figcaption id="recipe4cap"></figcaption>
+        </figure> 
+        <figure>
+          <img class="z-depth-4" id="recipe5" src="" />
+            <figcaption id="recipe5cap"></figcaption>
+        </figure> 
+        <figure>
+          <img class="z-depth-4" id="recipe6" src="" />
+            <figcaption id="recipe6cap"></figcaption>
+          </figure> 
+
+        
+       
+        <!-- Recipes will be displayed here -->
+      </div>
     </section>
 
     <section id="recipe-details">
-        <h2>Recipe Details</h2>
-        <div id="selected-recipe">
-            <!-- Recipe details will be displayed here -->
-        </div>
+      <h2>Recipe Details</h2>
+      <div id="selected-recipe">
+        <!-- Recipe details will be displayed here -->
+      </div>
     </section>
 
     <section id="health-labels">
-        <h2>Health Labels</h2>
-        <button id="health-label-button">Retrieve Health Labels</button>
-        <div  id="health-labels-list">
-            <!-- Health labels will be displayed here -->
-        </div>
+      <h2>Health Labels</h2>
+      <button id="health-label-button">Retrieve Health Labels</button>
+      <div id="health-labels-list">
+        <!-- Health labels will be displayed here -->
+      </div>
     </section>
 
     <!-- Materialize JavaScript library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Your custom JavaScript -->
-    <script src="script.js"></script>
-</body>
+    <script src="./Assets/script.js"></script>
+  </body>
 </html>
