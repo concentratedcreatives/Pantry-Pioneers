@@ -14,7 +14,7 @@ h1 {
     font-size: 4.5em;
     text-shadow: 6px 6px 6px yellow;
 }
-  
+
 h2 {
     font-size: 2.3em;
 }
@@ -50,6 +50,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    align-content: center;
 }
 
 img {
@@ -58,7 +59,7 @@ img {
 .mode {
     transition: all 1.5s;
 }
-.light header {
+.light header{
     background-color: #eaf8f0;
 }
 
@@ -83,5 +84,6 @@ img {
   text-align: center;
 }
 
-
-
+.card-panel.hoverable {
+  display: none;
+}
