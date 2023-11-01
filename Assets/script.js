@@ -8,7 +8,7 @@ function getApi(event) {
   var requestUrl =
     "https://api.edamam.com/api/recipes/v2?type=public&app_id=6ea07f97&app_key=bdc6918f9a087784e70607e12f2591ab&q=" +
     searchedIng +
-    "&ingr=5";
+    "&ingr=5&dishType=Biscuits%20and%20cookies&dishType=Bread&dishType=Cereals&dishType=Condiments%20and%20sauces&dishType=Desserts&dishType=Main%20course&dishType=Pancake&dishType=Preps&dishType=Preserve&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Soup&dishType=Starter&dishType=Sweets";
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -60,10 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var themeSwitcher = document.getElementById("theme-switcher");
     var containerMode = document.querySelector(".mode");
 
-    // Set default mode to light
     var mode = "light";
 
-    // Function to toggle between dark and light modes
     function toggleMode() {
       if (themeSwitcher.checked) {
         mode= "dark" 
@@ -73,38 +71,59 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (mode=="dark") {
           console.log(mode)
-           
-            // containerMode.classList.remove("light");
             containerMode.classList.add("dark");
-
         } else {
           console.log(mode)
-           
             containerMode.classList.remove("dark");
-            // containerMode.classList.add("light");
         }
     }
-
-    // Listen for the checkbox change event to toggle mode
     themeSwitcher.addEventListener('change', toggleMode);
 });
 
 
 
 searchButton.addEventListener("click", getApi);
+searchButton.addEventListener("click", storeIngredient);
 
-var recipeButton = document.querySelectorAll(".imgButton");
-function getApi2(event) {
+function storeIngredient(event) {
   event.preventDefault();
-  var requestUrl = "";
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      console.log(requestUrl);
+  var ingredientList = document.getElementById("ingredient-list");
+  var searchBar = document.getElementById("ingredients");
+  var trimmedIngredient = searchBar.value.trim();
+  var searchedIngredients = trimmedIngredient.split(" ");
+
+  if (searchedIngredients.length === 0) {
+    alert("Please enter at least one ingredient.");
+    return;
+  }
+
+  var ingredients = JSON.parse(localStorage.getItem("ingredients")) || [];
+  ingredients = ingredients.concat(searchedIngredients);
+
+  //removes oldest if array >8 ingredients
+  if (ingredients.length > 8) {
+    ingredients = ingredients.slice(ingredients.length - 8);
+  }
+  ingredientList.innerHTML = "";
+  ingredients.forEach(function (ingredient) {
+    var button = document.createElement("button");
+    button.textContent = ingredient;
+    ingredientList.appendChild(button);
+    //make search history buttons clickable
+    button.addEventListener("click", function () {
+      searchBar.value = ingredient;
+      getApi(event);
     });
+  });
+
+  //stores searched cities in local storage
+  localStorage.setItem("ingredients", JSON.stringify(ingredients));
+  //clear search bar after search
+  searchBar.value = "";
+  console.log(ingredients);
 }
 
-recipeButton.addEventListener("click", getApi2);
+//clears local storage on refresh
+window.onbeforeunload = function (e) {
+  localStorage.clear();
+};
