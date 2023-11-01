@@ -58,7 +58,7 @@ img {
 .mode {
     transition: all 1.5s;
 }
-<<<<<<<<< Temporary merge branch 1
+
 
 .light {
     background-color: #fafafa;
@@ -67,10 +67,9 @@ img {
 
 .light button {
   background-color: #fafafa;
-=========
+}
 .light header{
     background-color: #eaf8f0;
->>>>>>>>> Temporary merge branch 2
 }
 
 .dark {
