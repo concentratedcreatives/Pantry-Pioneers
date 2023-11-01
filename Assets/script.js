@@ -204,3 +204,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Add an event listener to the search button
+  document.getElementById('searchButton').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent the form from submitting (if it's a form)
+
+    // Show the search-results section
+    const searchResultsSection = document.getElementById('search-results');
+    searchResultsSection.style.display = 'block';
+
+    // Add your search functionality here to populate the search results
+  });
+});
+
