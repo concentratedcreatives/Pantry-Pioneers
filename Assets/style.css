@@ -12,7 +12,7 @@ header {
 
 h1 {
     font-size: 4.5em;
-    text-shadow: 6px 6px 6px yellow;
+    text-shadow: 6px 6px 6px #546e7a;
 }
 
 h2 {
@@ -44,8 +44,6 @@ input[type="text"] {
 }
 
 button {
-    background-color: #2ECC71; /* Green button background color */
-    color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -56,11 +54,22 @@ button {
 img {
     margin: 10px;
 }
+
 .mode {
     transition: all 1.5s;
 }
+
+.light {
+    background-color: #fafafa;
+    color: #000000;
+}
+
 .light header{
     background-color: #eaf8f0;
+}
+
+.light button {
+  background-color: #fafafa;
 }
 
 .dark {
@@ -68,6 +77,17 @@ img {
     color: bisque;
     transition: all 1.5s;
 }
+
+.dark button {
+  background-color: #37474f;
+  color: antiquewhite;
+}
+
+.dark section {
+  background-color: #546e7a;
+  color: bisque;
+}
+
 #dark-mode-toggle {
   position: fixed;
   top: 0;
@@ -80,23 +100,10 @@ img {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 .imgButton {
   text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .card-panel.hoverable {
   display: none;

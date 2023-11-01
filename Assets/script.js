@@ -60,10 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var themeSwitcher = document.getElementById("theme-switcher");
     var containerMode = document.querySelector(".mode");
 
-    // Set default mode to light
     var mode = "light";
 
-    // Function to toggle between dark and light modes
     function toggleMode() {
       if (themeSwitcher.checked) {
         mode= "dark" 
@@ -73,19 +71,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (mode=="dark") {
           console.log(mode)
-           
-            // containerMode.classList.remove("light");
             containerMode.classList.add("dark");
-
         } else {
           console.log(mode)
-           
             containerMode.classList.remove("dark");
-            // containerMode.classList.add("light");
         }
     }
-
-    // Listen for the checkbox change event to toggle mode
     themeSwitcher.addEventListener('change', toggleMode);
 });
 
