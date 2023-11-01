@@ -58,8 +58,19 @@ img {
 .mode {
     transition: all 1.5s;
 }
-.light header {
+<<<<<<<<< Temporary merge branch 1
+
+.light {
+    background-color: #fafafa;
+    color: #000000;
+}
+
+.light button {
+  background-color: #fafafa;
+=========
+.light header{
     background-color: #eaf8f0;
+>>>>>>>>> Temporary merge branch 2
 }
 
 .dark {
@@ -77,6 +88,7 @@ img {
   background-color: #546e7a;
   color: bisque;
 }
+
 #dark-mode-toggle {
   position: fixed;
   top: 0;
@@ -89,23 +101,10 @@ img {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 .imgButton {
   text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .card-panel.hoverable {
   display: none;
