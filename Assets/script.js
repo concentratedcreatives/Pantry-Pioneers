@@ -8,7 +8,7 @@ function getApi(event) {
   var requestUrl =
     "https://api.edamam.com/api/recipes/v2?type=public&app_id=6ea07f97&app_key=bdc6918f9a087784e70607e12f2591ab&q=" +
     searchedIng +
-    "&ingr=5";
+    "&ingr=5&dishType=Biscuits%20and%20cookies&dishType=Bread&dishType=Cereals&dishType=Condiments%20and%20sauces&dishType=Desserts&dishType=Main%20course&dishType=Pancake&dishType=Preps&dishType=Preserve&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Soup&dishType=Starter&dishType=Sweets";
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -58,20 +58,6 @@ function getApi(event) {
 searchButton.addEventListener("click", getApi);
 searchButton.addEventListener("click", storeIngredient);
 
-// var recipeButton = document.querySelectorAll(".imgButton");
-// function getApi2(event) {
-//   event.preventDefault();
-//   var requestUrl = "";
-//   fetch(requestUrl)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log(data);
-//       console.log(requestUrl);
-//     });
-// }
-
 function storeIngredient(event) {
   event.preventDefault();
   var ingredientList = document.getElementById("ingredient-list");
@@ -89,7 +75,7 @@ function storeIngredient(event) {
 
   //removes oldest if array >8 ingredients
   if (ingredients.length > 8) {
-    ingredients = incredients.slice(ingredients.length - 8);
+    ingredients = ingredients.slice(ingredients.length - 8);
   }
   ingredientList.innerHTML = "";
   ingredients.forEach(function (ingredient) {
