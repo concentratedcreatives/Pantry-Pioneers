@@ -127,3 +127,80 @@ function storeIngredient(event) {
 window.onbeforeunload = function (e) {
   localStorage.clear();
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Add an event listener to the search button
+  document.getElementById('searchButton').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent the form from submitting (if it's a form)
+
+    // Show the card panels
+    const cardPanels = document.querySelectorAll('.card-panel.hoverable');
+    cardPanels.forEach(function (panel) {
+      panel.style.display = 'block';
+    });
+  });
+});
