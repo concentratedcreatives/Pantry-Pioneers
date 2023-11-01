@@ -108,3 +108,7 @@ img {
 .card-panel.hoverable {
   display: none;
 }
+
+#search-results {
+  display:none;
+}
