@@ -165,33 +165,6 @@ window.onbeforeunload = function (e) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
   // Add an event listener to the search button
   document.getElementById('searchButton').addEventListener('click', function (event) {
