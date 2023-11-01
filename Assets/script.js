@@ -56,19 +56,61 @@ function getApi(event) {
     });
 }
 searchButton.addEventListener("click", getApi);
+searchButton.addEventListener("click", storeIngredient);
 
-var recipeButton = document.querySelectorAll(".imgButton");
-function getApi2(event) {
+// var recipeButton = document.querySelectorAll(".imgButton");
+// function getApi2(event) {
+//   event.preventDefault();
+//   var requestUrl = "";
+//   fetch(requestUrl)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//       console.log(requestUrl);
+//     });
+// }
+
+function storeIngredient(event) {
   event.preventDefault();
-  var requestUrl = "";
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      console.log(requestUrl);
+  var ingredientList = document.getElementById("ingredient-list");
+  var searchBar = document.getElementById("ingredients");
+  var trimmedIngredient = searchBar.value.trim();
+  var searchedIngredients = trimmedIngredient.split(" ");
+
+  if (searchedIngredients.length === 0) {
+    alert("Please enter at least one ingredient.");
+    return;
+  }
+
+  var ingredients = JSON.parse(localStorage.getItem("ingredients")) || [];
+  ingredients = ingredients.concat(searchedIngredients);
+
+  //removes oldest if array >8 ingredients
+  if (ingredients.length > 8) {
+    ingredients = incredients.slice(ingredients.length - 8);
+  }
+  ingredientList.innerHTML = "";
+  ingredients.forEach(function (ingredient) {
+    var button = document.createElement("button");
+    button.textContent = ingredient;
+    ingredientList.appendChild(button);
+    //make search history buttons clickable
+    button.addEventListener("click", function () {
+      searchBar.value = ingredient;
+      getApi(event);
     });
+  });
+
+  //stores searched cities in local storage
+  localStorage.setItem("ingredients", JSON.stringify(ingredients));
+  //clear search bar after search
+  searchBar.value = "";
+  console.log(ingredients);
 }
 
-recipeButton.addEventListener("click", getApi2);
+//clears local storage on refresh
+window.onbeforeunload = function (e) {
+  localStorage.clear();
+};
