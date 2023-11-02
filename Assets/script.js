@@ -1,7 +1,9 @@
+// Selecting HTML elements and defining variables
 var recipeList = document.querySelector("ul");
 var searchButton = document.getElementById("searchButton");
 var searchBar = document.getElementById("ingredients");
 
+// Function to fetch data from the first API
 function getApi(event) {
   event.preventDefault();
   var searchedIng = searchBar.value;
@@ -9,7 +11,8 @@ function getApi(event) {
     "https://api.edamam.com/api/recipes/v2?type=public&app_id=6ea07f97&app_key=bdc6918f9a087784e70607e12f2591ab&q=" +
     searchedIng +
     "&ingr=5&dishType=Biscuits%20and%20cookies&dishType=Bread&dishType=Cereals&dishType=Condiments%20and%20sauces&dishType=Desserts&dishType=Main%20course&dishType=Pancake&dishType=Preps&dishType=Preserve&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Soup&dishType=Starter&dishType=Sweets";
-  fetch(requestUrl)
+    // Fetch data from the first API
+    fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
@@ -17,7 +20,7 @@ function getApi(event) {
       console.log(data);
       console.log(searchedIng);
       console.log(requestUrl);
-
+      // Update the HTML elements with data from the API
       var recipe1 = document.getElementById("recipe1");
       var recipe1URL = data.hits[0].recipe.images.REGULAR.url;
       var recipe1cap = document.getElementById("recipe1cap");
@@ -54,12 +57,47 @@ function getApi(event) {
       recipe6.setAttribute("src", recipe6URL);
       recipe6cap.innerHTML = data.hits[5].recipe.label;
     });
+      // Call the function to fetch data from the second API
+    fetchSecondApi();
+}
+// Function to fetch data from the second API
+function fetchSecondApi() {
+  var apiKey = "1"; // Test API key
+  var secondApiUrl = "https://www.thecocktaildb.com/api/json/v1/" + apiKey + "/random.php";
+
+  // Fetch data from the second API
+  fetch(secondApiUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("Second API response: ", data);
+
+      // Extract data from the second API response
+      var cocktailName = data.drinks[0].strDrink;
+      var cocktailImageURL = data.drinks[0].strDrinkThumb; 
+
+      // Update the HTML elements with the cocktail name and image
+      var cocktailNameElement = document.getElementById("cocktailName");
+      cocktailNameElement.textContent = "Cocktail Name: " + cocktailName;
+
+      var cocktailImageElement = document.getElementById("cocktail-Image");
+      cocktailImageElement.src = cocktailImageURL;
+
+      // Show the cocktail section
+      var cocktailSection = document.getElementById("cocktail-section");
+      cocktailSection.style.display = "block";
+
+    })
+    .catch(function (error) {
+      console.error("Error fetching second API: ", error);
+    });
 }
 
+// Add an event listener to switch between light and dark modes
 document.addEventListener('DOMContentLoaded', function() {
     var themeSwitcher = document.getElementById("theme-switcher");
     var containerMode = document.querySelector(".mode");
-
     var mode = "light";
 
     function toggleMode() {
@@ -80,11 +118,11 @@ document.addEventListener('DOMContentLoaded', function() {
     themeSwitcher.addEventListener('change', toggleMode);
 });
 
-
-
+// Add an event listener to the search button for fetching recipes and storing ingredients
 searchButton.addEventListener("click", getApi);
 searchButton.addEventListener("click", storeIngredient);
 
+// Function to store searched ingredients and display them
 function storeIngredient(event) {
   event.preventDefault();
   var ingredientList = document.getElementById("ingredient-list");
@@ -97,10 +135,11 @@ function storeIngredient(event) {
     return;
   }
 
+  // Retrieve and update the stored ingredients
   var ingredients = JSON.parse(localStorage.getItem("ingredients")) || [];
   ingredients = ingredients.concat(searchedIngredients);
 
-  //removes oldest if array >8 ingredients
+  // Remove the oldest ingredient if the array exceeds 8 ingredients
   if (ingredients.length > 8) {
     ingredients = ingredients.slice(ingredients.length - 8);
   }
@@ -109,21 +148,42 @@ function storeIngredient(event) {
     var button = document.createElement("button");
     button.textContent = ingredient;
     ingredientList.appendChild(button);
-    //make search history buttons clickable
+  // Make search history buttons clickable
     button.addEventListener("click", function () {
       searchBar.value = ingredient;
       getApi(event);
     });
   });
 
-  //stores searched cities in local storage
+  // Store searched ingredients in local storage
   localStorage.setItem("ingredients", JSON.stringify(ingredients));
-  //clear search bar after search
+  // Clear the search bar after search
   searchBar.value = "";
   console.log(ingredients);
 }
 
-//clears local storage on refresh
+// Clear local storage on refresh
 window.onbeforeunload = function (e) {
   localStorage.clear();
 };
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Add an event listener to the search button
+  document.getElementById('searchButton').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent the form from submitting 
+    // Show the card panels
+    const cardPanels = document.querySelectorAll('.card-panel.hoverable');
+    cardPanels.forEach(function (panel) {
+      panel.style.display = 'block';
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Add an event listener to the search button
+  document.getElementById('searchButton').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent the form from submitting 
+    // Show the search-results section
+    const searchResultsSection = document.getElementById('search-results'); searchResultsSection.style.display = 'block';
+  });
+});

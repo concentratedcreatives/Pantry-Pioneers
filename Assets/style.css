@@ -1,3 +1,4 @@
+/* Reset some default styles for the body */
 body {
   font-family: "Poppins", monospace;
   background-color: #f7f7f7;
@@ -5,20 +6,24 @@ body {
   padding: 0;
 }
 
+/* Styles for the header */
 header {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 20px;
 }
 
+/* Styles for the main heading */
 h1 {
-    font-size: 4.5em;
-    text-shadow: 6px 6px 6px #546e7a;
-}
-  
-h2 {
-    font-size: 2.3em;
+  font-size: 4.5em;
+  text-shadow: 6px 6px 6px #546e7a;
 }
 
+/* Styles for secondary headings */
+h2 {
+  font-size: 2.3em;
+}
+
+/* Style for sections */
 section {
   background-color: #fff;
   margin: 20px;
@@ -27,15 +32,18 @@ section {
   border-radius: 5px;
 }
 
+/* Style for forms */
 form {
   margin-top: 10px;
 }
 
+/* Style for labels */
 label {
   display: block;
   margin-bottom: 5px;
 }
 
+/* Style for text input */
 input[type="text"] {
   width: 100%;
   padding: 10px;
@@ -43,34 +51,44 @@ input[type="text"] {
   border-radius: 5px;
 }
 
+/* Style for buttons */
 button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-content: center;
 }
 
+/* Style for images */
 img {
-    margin: 10px;
+  margin: 10px;
 }
 
+/* Define styles for light and dark modes */
 .mode {
-    transition: all 1.5s;
+  transition: all 1.5s;
 }
 
+/* Styles for the light mode */
 .light {
-    background-color: #fafafa;
-    color: #000000;
+  background-color: #fafafa;
+  color: #000000;
+}
+
+.light header {
+  background-color: #eaf8f0;
 }
 
 .light button {
   background-color: #fafafa;
 }
 
+/* Styles for the dark mode */
 .dark {
-    background-color: #263238;
-    color: bisque;
-    transition: all 1.5s;
+  background-color: #263238;
+  color: bisque;
+  transition: all 1.5s;
 }
 
 .dark button {
@@ -82,6 +100,8 @@ img {
   background-color: #546e7a;
   color: bisque;
 }
+
+/* Position the dark mode toggle */
 #dark-mode-toggle {
   position: fixed;
   top: 0;
@@ -89,14 +109,35 @@ img {
   padding: 5px;
 }
 
+/* Style for recipe images */
 #recipe-images {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-.imgButton {
+
+/* Style for cocktail section */
+#cocktail-section {
+  display: none;
   text-align: center;
 }
 
+/* Style for cocktail images */
+#cocktail-Image {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  height: auto;
+  margin: 10px;
+}
 
+/* Define styles for the hidden card panels */
+.card-panel.hoverable {
+  display: none;
+  text-align: center;
+}
 
+/* Hide the search results and cocktail section */
+#search-results {
+  display: none;
+}
