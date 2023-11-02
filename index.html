@@ -4,18 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Link to Materialize CSS library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Link to Material Icons and Poppins fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Link to custom CSS -->
     <link rel="stylesheet" href="./Assets/style.css">
     <title>Pantry Pioneers</title>
 </head>
 
 <body class="mode">
     <header>
+      <!--Header and Caption-->
         <h1>Pantry Pioneers</h1>
-        <p><i>"Make good use of ingredients lying around!"</i> - <i>Maybe</i> Martha Stewart</p>
+        <p> <i>"Explore recipes using your available ingredients and uncover the perfect drink pairing."</i> 
         <div class="switch" id="dark-mode-toggle">
+               <!-- Dark mode toggle switch -->
             <label>
                 <i class="small material-icons">brightness_5</i>
                 <input type="checkbox" id="theme-switcher">
@@ -24,7 +29,7 @@
             </label>
         </div>
     </header>
-
+      <!-- Input field to enter ingredients -->
     <section id="ingredient-search">
       <h4>Find Recipes Based on Your Ingredients</h4>
       <form>
@@ -35,6 +40,7 @@
           placeholder="E.g., tomatoes, pasta, onions"
           required
         />
+          <!-- Search button -->
         <button
           class="btn waves-effect waves-light light"
           id="searchButton"
@@ -48,6 +54,7 @@
 
     <section id="search-results">
       <div id="recipe-images">
+            <!-- Recipe containers -->
         <div class="recipe-container">
           <div><img class="z-depth-4 hoverable" id="recipe1" src="" /></div>
           <div class="card-panel hoverable" id="recipe1cap"></div>
@@ -76,12 +83,12 @@
     </section>
 
     <section id="cocktail-section">
+      <!-- Cocktail container -->
       <div class="recipe-container">
         <div><img class="z-depth-4 hoverable" id="cocktail-Image" src="" alt="Cocktail Image" /></div>
         <div class="card-panel hoverable" id="cocktailName">Cocktail Name: </div>
       </div>
     </section>
-    
     
     <!-- Materialize JavaScript library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
