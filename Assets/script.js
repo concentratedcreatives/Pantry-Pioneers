@@ -11,8 +11,8 @@ function getApi(event) {
     "https://api.edamam.com/api/recipes/v2?type=public&app_id=6ea07f97&app_key=bdc6918f9a087784e70607e12f2591ab&q=" +
     searchedIng +
     "&ingr=5&dishType=Biscuits%20and%20cookies&dishType=Bread&dishType=Cereals&dishType=Condiments%20and%20sauces&dishType=Desserts&dishType=Main%20course&dishType=Pancake&dishType=Preps&dishType=Preserve&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Soup&dishType=Starter&dishType=Sweets";
-    // Fetch data from the first API
-    fetch(requestUrl)
+  // Fetch data from the first API
+  fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
@@ -56,14 +56,20 @@ function getApi(event) {
       var recipe6cap = document.getElementById("recipe6cap");
       recipe6.setAttribute("src", recipe6URL);
       recipe6cap.innerHTML = data.hits[5].recipe.label;
+
+      if (searchedIng.length === 0) {
+        M.toast({ html: "Please enter at least one ingredient." });
+        return;
+      }
     });
-      // Call the function to fetch data from the second API
-    fetchSecondApi();
+  // Call the function to fetch data from the second API
+  fetchSecondApi();
 }
 // Function to fetch data from the second API
 function fetchSecondApi() {
   var apiKey = "1"; // Test API key
-  var secondApiUrl = "https://www.thecocktaildb.com/api/json/v1/" + apiKey + "/random.php";
+  var secondApiUrl =
+    "https://www.thecocktaildb.com/api/json/v1/" + apiKey + "/random.php";
 
   // Fetch data from the second API
   fetch(secondApiUrl)
@@ -75,7 +81,7 @@ function fetchSecondApi() {
 
       // Extract data from the second API response
       var cocktailName = data.drinks[0].strDrink;
-      var cocktailImageURL = data.drinks[0].strDrinkThumb; 
+      var cocktailImageURL = data.drinks[0].strDrinkThumb;
 
       // Update the HTML elements with the cocktail name and image
       var cocktailNameElement = document.getElementById("cocktailName");
@@ -87,7 +93,6 @@ function fetchSecondApi() {
       // Show the cocktail section
       var cocktailSection = document.getElementById("cocktail-section");
       cocktailSection.style.display = "block";
-
     })
     .catch(function (error) {
       console.error("Error fetching second API: ", error);
@@ -95,27 +100,26 @@ function fetchSecondApi() {
 }
 
 // Add an event listener to switch between light and dark modes
-document.addEventListener('DOMContentLoaded', function() {
-    var themeSwitcher = document.getElementById("theme-switcher");
-    var containerMode = document.querySelector(".mode");
-    var mode = "light";
+document.addEventListener("DOMContentLoaded", function () {
+  var themeSwitcher = document.getElementById("theme-switcher");
+  var containerMode = document.querySelector(".mode");
+  var mode = "light";
 
-    function toggleMode() {
-      if (themeSwitcher.checked) {
-        mode= "dark" 
-        }
-        else{
-          mode= "light"
-        }
-        if (mode=="dark") {
-          console.log(mode)
-            containerMode.classList.add("dark");
-        } else {
-          console.log(mode)
-            containerMode.classList.remove("dark");
-        }
+  function toggleMode() {
+    if (themeSwitcher.checked) {
+      mode = "dark";
+    } else {
+      mode = "light";
     }
-    themeSwitcher.addEventListener('change', toggleMode);
+    if (mode == "dark") {
+      console.log(mode);
+      containerMode.classList.add("dark");
+    } else {
+      console.log(mode);
+      containerMode.classList.remove("dark");
+    }
+  }
+  themeSwitcher.addEventListener("change", toggleMode);
 });
 
 // Add an event listener to the search button for fetching recipes and storing ingredients
@@ -130,11 +134,6 @@ function storeIngredient(event) {
   var trimmedIngredient = searchBar.value.trim();
   var searchedIngredients = trimmedIngredient.split(" ");
 
-  if (searchedIngredients.length === 0) {
-    alert("Please enter at least one ingredient.");
-    return;
-  }
-
   // Retrieve and update the stored ingredients
   var ingredients = JSON.parse(localStorage.getItem("ingredients")) || [];
   ingredients = ingredients.concat(searchedIngredients);
@@ -148,7 +147,7 @@ function storeIngredient(event) {
     var button = document.createElement("button");
     button.textContent = ingredient;
     ingredientList.appendChild(button);
-  // Make search history buttons clickable
+    // Make search history buttons clickable
     button.addEventListener("click", function () {
       searchBar.value = ingredient;
       getApi(event);
@@ -167,23 +166,28 @@ window.onbeforeunload = function (e) {
   localStorage.clear();
 };
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   // Add an event listener to the search button
-  document.getElementById('searchButton').addEventListener('click', function (event) {
-    event.preventDefault(); // Prevent the form from submitting 
-    // Show the card panels
-    const cardPanels = document.querySelectorAll('.card-panel.hoverable');
-    cardPanels.forEach(function (panel) {
-      panel.style.display = 'block';
+  document
+    .getElementById("searchButton")
+    .addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent the form from submitting
+      // Show the card panels
+      const cardPanels = document.querySelectorAll(".card-panel.hoverable");
+      cardPanels.forEach(function (panel) {
+        panel.style.display = "block";
+      });
     });
-  });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   // Add an event listener to the search button
-  document.getElementById('searchButton').addEventListener('click', function (event) {
-    event.preventDefault(); // Prevent the form from submitting 
-    // Show the search-results section
-    const searchResultsSection = document.getElementById('search-results'); searchResultsSection.style.display = 'block';
-  });
+  document
+    .getElementById("searchButton")
+    .addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent the form from submitting
+      // Show the search-results section
+      const searchResultsSection = document.getElementById("search-results");
+      searchResultsSection.style.display = "block";
+    });
 });
