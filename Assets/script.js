@@ -11,6 +11,11 @@ function getApi(event) {
     "https://api.edamam.com/api/recipes/v2?type=public&app_id=6ea07f97&app_key=bdc6918f9a087784e70607e12f2591ab&q=" +
     searchedIng +
     "&ingr=5&dishType=Biscuits%20and%20cookies&dishType=Bread&dishType=Cereals&dishType=Condiments%20and%20sauces&dishType=Desserts&dishType=Main%20course&dishType=Pancake&dishType=Preps&dishType=Preserve&dishType=Salad&dishType=Sandwiches&dishType=Side%20dish&dishType=Soup&dishType=Starter&dishType=Sweets";
+
+  if (searchedIng.trim() === "") {
+    M.toast({ html: "Please enter at least one ingredient." });
+    return;
+  }
   // Fetch data from the first API
   fetch(requestUrl)
     .then(function (response) {
@@ -56,11 +61,6 @@ function getApi(event) {
       var recipe6cap = document.getElementById("recipe6cap");
       recipe6.setAttribute("src", recipe6URL);
       recipe6cap.innerHTML = data.hits[5].recipe.label;
-
-      if (searchedIng.length === 0) {
-        M.toast({ html: "Please enter at least one ingredient." });
-        return;
-      }
     });
   // Call the function to fetch data from the second API
   fetchSecondApi();
