@@ -112,3 +112,17 @@ img {
 #search-results {
   display:none;
 }
+
+#cocktail-section {
+  display: none;
+}
+
+#cocktail-Image {
+  width: 300px; /* Adjust to your preferred width */
+  height: auto; /* To maintain the aspect ratio */
+  margin: 10px;
+}
+
+.card-panel.hoverable {
+  display: none;
+}

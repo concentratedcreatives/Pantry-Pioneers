@@ -54,7 +54,42 @@ function getApi(event) {
       recipe6.setAttribute("src", recipe6URL);
       recipe6cap.innerHTML = data.hits[5].recipe.label;
     });
+    fetchSecondApi();
 }
+
+function fetchSecondApi() {
+  var apiKey = "1"; // Test API key
+  var secondApiUrl = "https://www.thecocktaildb.com/api/json/v1/" + apiKey + "/random.php";
+
+  fetch(secondApiUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("Second API response: ", data);
+
+      // Extract data from the second API response
+      var cocktailName = data.drinks[0].strDrink;
+      var cocktailImageURL = data.drinks[0].strDrinkThumb; // Use the correct image URL field
+
+      // Update the HTML elements with the cocktail name and image
+      var cocktailNameElement = document.getElementById("cocktailName");
+      cocktailNameElement.textContent = "Cocktail Name: " + cocktailName;
+
+      var cocktailImageElement = document.getElementById("cocktail-Image");
+      cocktailImageElement.src = cocktailImageURL;
+
+      // Show the cocktail section
+      var cocktailSection = document.getElementById("cocktail-section");
+      cocktailSection.style.display = "block";
+
+    })
+    .catch(function (error) {
+      console.error("Error fetching second API: ", error);
+    });
+}
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
     var themeSwitcher = document.getElementById("theme-switcher");
