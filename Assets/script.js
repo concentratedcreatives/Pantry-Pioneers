@@ -190,6 +190,8 @@ function storeIngredient(event) {
       var button = document.createElement("button");
       button.textContent = ingredient;
       ingredientList.appendChild(button);
+      button.style.backgroundColor = "grey";
+
       // Make search history buttons clickable
       button.addEventListener("click", function () {
         searchBar.value = ingredient;
