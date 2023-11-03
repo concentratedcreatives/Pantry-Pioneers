@@ -123,6 +123,18 @@ function fetchSecondApi() {
       // Show the cocktail section
       var cocktailSection = document.getElementById("cocktail-section");
       cocktailSection.style.display = "block";
+      var cocktailName = document.getElementById("cocktailName");
+      var aTag = document.createElement("a");
+      var longDrinkName = data.drinks[0].strDrink;
+      var drinkName = longDrinkName.replace(/\s/g, "-");
+      aTag.setAttribute(
+        "href",
+        "https://www.thecocktaildb.com/drink/" +
+          data.drinks[0].idDrink +
+          "-" +
+          drinkName
+      );
+      cocktailName.appendChild(aTag);
     })
     .catch(function (error) {
       console.error("Error fetching second API: ", error);
