@@ -144,14 +144,16 @@ function storeIngredient(event) {
   }
   ingredientList.innerHTML = "";
   ingredients.forEach(function (ingredient) {
-    var button = document.createElement("button");
-    button.textContent = ingredient;
-    ingredientList.appendChild(button);
-    // Make search history buttons clickable
-    button.addEventListener("click", function () {
-      searchBar.value = ingredient;
-      getApi(event);
-    });
+    if (ingredient.trim() !== "") {
+      var button = document.createElement("button");
+      button.textContent = ingredient;
+      ingredientList.appendChild(button);
+      // Make search history buttons clickable
+      button.addEventListener("click", function () {
+        searchBar.value = ingredient;
+        getApi(event);
+      });
+    }
   });
 
   // Store searched ingredients in local storage
