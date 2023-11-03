@@ -191,6 +191,8 @@ function storeIngredient(event) {
       button.textContent = ingredient;
       ingredientList.appendChild(button);
       button.style.backgroundColor = "grey";
+      button.style.borderWidth = "3px"; // Set the border width to 3 pixels
+      button.style.borderStyle = "solid"; // Set the border style to solid (other options include "dotted", "dashed", etc.)
 
       // Make search history buttons clickable
       button.addEventListener("click", function () {
