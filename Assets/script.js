@@ -61,6 +61,36 @@ function getApi(event) {
       var recipe6cap = document.getElementById("recipe6cap");
       recipe6.setAttribute("src", recipe6URL);
       recipe6cap.innerHTML = data.hits[5].recipe.label;
+
+      var recipe1btn = document.getElementById("recipe1cap");
+      var aTag = document.createElement("a");
+      aTag.setAttribute("href", data.hits[0].recipe.url);
+      recipe1btn.appendChild(aTag);
+
+      var recipe2btn = document.getElementById("recipe2cap");
+      var aTag = document.createElement("a");
+      aTag.setAttribute("href", data.hits[1].recipe.url);
+      recipe2btn.appendChild(aTag);
+
+      var recipe3btn = document.getElementById("recipe3cap");
+      var aTag = document.createElement("a");
+      aTag.setAttribute("href", data.hits[2].recipe.url);
+      recipe3btn.appendChild(aTag);
+
+      var recipe4btn = document.getElementById("recipe4cap");
+      var aTag = document.createElement("a");
+      aTag.setAttribute("href", data.hits[3].recipe.url);
+      recipe4btn.appendChild(aTag);
+
+      var recipe5btn = document.getElementById("recipe5cap");
+      var aTag = document.createElement("a");
+      aTag.setAttribute("href", data.hits[4].recipe.url);
+      recipe5btn.appendChild(aTag);
+
+      var recipe6btn = document.getElementById("recipe6cap");
+      var aTag = document.createElement("a");
+      aTag.setAttribute("href", data.hits[5].recipe.url);
+      recipe6btn.appendChild(aTag);
     });
   // Call the function to fetch data from the second API
   fetchSecondApi();

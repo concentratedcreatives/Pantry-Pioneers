@@ -157,10 +157,19 @@ img {
   display: none;
   text-align: center;
   border-radius: 15px;
-  transform: rotate3d(1,1,1,360deg);
+  transform: rotate3d(1, 1, 1, 360deg);
 }
 
 /* Hide the search results and cocktail section */
 #search-results {
   display: none;
+}
+
+.recipe-container a::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }
