@@ -10,7 +10,7 @@ body {
 header {
   text-align: center;
   background-image: url(../images/img_1466_p1.jpg);
-  background-size: auto;
+  background-size: cover;
   padding: 20px;
 }
 
@@ -76,14 +76,17 @@ img {
 
 /* Styles for the light mode */
 .light {
-  background-color: #fafafa;
+  background-color: #ffffff;
   color: #000000;
 }
 
 .light header {
-  color: antiquewhite;
+  color: beige;
 }
 
+.light section {
+  background-color: #f5f5f5;
+}
 .light button {
   background-color: #fafafa;
 }
@@ -115,6 +118,15 @@ img {
   top: 0;
   right: 0;
   padding: 5px;
+}
+
+.recipe-container a::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }
 
 #ingredient-list {
@@ -157,7 +169,6 @@ img {
   display: none;
   text-align: center;
   border-radius: 15px;
-  transform: rotate3d(1, 1, 1, 360deg);
 }
 
 /* Hide the search results and cocktail section */
