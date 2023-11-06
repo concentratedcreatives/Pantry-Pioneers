@@ -22,9 +22,15 @@ Pantry Pioneer is a web application that helps users discover exciting and rando
 
 ### User Story 2
 
-- **GIVEN** I see a list o food recipes based on my ingredients
+- **GIVEN** I see a list of food recipes based on my ingredients
 - **WHEN** I click on a recipe
 - **THEN** I expect to see a random drink pairing.
+
+### User Story 3
+
+- **GIVEN** I am viewing the list of food recipes based on my ingredients
+- **WHEN** I click on a recipe title
+- **THEN** I expect to be directed to the recipe's source page where I can find detailed instructions and additional information about the recipe.
 
 ## Wireframe
 
@@ -41,5 +47,6 @@ You can find the wireframe for the updated project [here](https://excalidraw.com
 
 - **Java Team (Chanel, Lorna, and Blaze)**
 
+- **CSS & Presentation Team (Quinn and Kurstie)**
 - **CSS & Presentation Team (Quinn and Kurstie)**
 
