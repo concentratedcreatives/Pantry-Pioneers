@@ -1,4 +1,4 @@
-# Pantry Pioneer
+# Pantry Pioneers
 
 ## Project Description
 
@@ -45,8 +45,8 @@ You can find the wireframe for the updated project [here](https://excalidraw.com
 
 ## Rough Breakdown of Tasks
 
-- **Java Team (Chanel, Lorna, and Blaze)**
+- **Java Team & support CSS (Chanel, Lorna, and Blaze)**
 
-- **CSS & Presentation Team (Quinn and Kurstie)**
-- **CSS & Presentation Team (Quinn and Kurstie)**
+- **HTML, CSS & Presentation Coordination Team (Quinn and Kurstie)**
+
 
